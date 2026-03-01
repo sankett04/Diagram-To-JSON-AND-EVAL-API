@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import joblib
 from motor.motor_asyncio import AsyncIOMotorClient
+import gdown
 
 # Importing updated async functions
 from Module.imgtojson import image_to_json
@@ -57,6 +58,18 @@ app.add_middleware(
 # ML MODEL LOADING
 # ============================================
 MODEL_PATH = "Module/mlmodel/EvaluateScoreXG.joblib"
+DRIVE_URL = "https://drive.google.com/file/d/1hu417BOi1S0W-vK2vKDVHjdqiRpHl7mp/view?usp=sharing"
+
+def download_model():
+    if not os.path.exists(MODEL_PATH):
+        print("Downloading ML model...")
+        os.makedirs("Module/mlmodel", exist_ok=True)
+        gdown.download(DRIVE_URL, MODEL_PATH, quiet=False)
+        print("✅ ML Model downloaded successfully")
+
+# Call the function to download
+download_model()
+
 try:
     model = joblib.load(MODEL_PATH)
     print("✅ ML Model loaded successfully")
@@ -208,3 +221,4 @@ async def get_all_results():
     cursor = db_helper.db.student_results.find().sort("created_at", -1)
     results = [format_doc(doc) async for doc in cursor]
     return {"success": True, "data": results}
+
