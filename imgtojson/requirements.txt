@@ -24,6 +24,7 @@ httpx
 
 
 motor
-motor-asyncio
+
+
 
 xgboost
