@@ -2,13 +2,12 @@
 fastapi
 uvicorn[standard]
 python-multipart
-
 # Data processing
 pandas
 numpy
 
-
 # ML/Model
+gdown
 joblib
 scikit-learn
 rapidfuzz
@@ -28,3 +27,4 @@ motor
 
 
 xgboost
+
