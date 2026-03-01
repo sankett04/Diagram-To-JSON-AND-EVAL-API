@@ -1,0 +1,29 @@
+# FastAPI and server
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Data processing
+pandas
+numpy
+
+
+# ML/Model
+joblib
+scikit-learn
+rapidfuzz
+
+# Image processing
+Pillow
+python-dotenv
+
+# API
+openai
+httpx
+
+
+
+motor
+motor-asyncio
+
+xgboost
