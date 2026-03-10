@@ -18,7 +18,7 @@ from Module.ExtractFeatures import evaluate_diagram
 # DATABASE SETUP (MongoDB)
 # ============================================
 # Use environment variables for secrets in production!
-MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://sankettalele:Diagrameval@backend.hzwnqoj.mongodb.net/?appName=Backend")
+MONGO_URL = os.environ.get("MONGO_URL")
 DB_NAME = "Score"
 
 def download_model():
@@ -224,5 +224,6 @@ async def get_all_results():
     cursor = db_helper.db.student_results.find().sort("created_at", -1)
     results = [format_doc(doc) async for doc in cursor]
     return {"success": True, "data": results}
+
 
 
