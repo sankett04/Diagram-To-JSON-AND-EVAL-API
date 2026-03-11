@@ -1,6 +1,6 @@
-# Image to JSON API
+# 📊 Diagram-To-JSON & AI Evaluation API
 
-FastAPI backend for converting answer sheet images to JSON and evaluating student responses. Designed to integrate with Next.js frontend.
+An intelligent backend system that converts hand-drawn or digital diagram images into structured JSON data and evaluates student responses using a hybrid **Vision-Language Model (VLM)** and **XGBoost Regression** pipeline.
 
 
 ## 🚀 Quick Start
@@ -142,27 +142,13 @@ export async function uploadStudentAnswer(
 
 ---
 
-## 📦 Production Deployment Options
+## 📦 Production Deployment 
 
-### Option 1: Railway
-```bash
-# Connect GitHub repo, set environment variables
-railway init
-railway deploy
-```
-
-### Option 2: Render
+###  Render
 ```
 bash
 # Connect GitHub repo, automatically deploys on push
 # Set start command: uvicorn app:app --host 0.0.0.0 --port $PORT
-```
-
-### Option 3: Fly.io
-```
-bash
-fly launch
-fly deploy
 ```
 
 ---
@@ -171,17 +157,28 @@ fly deploy
 
 ```
 imgtojson/
-├── app.py                  # FastAPI application
-├── requirements.txt        # Python dependencies
-├── Dockerfile             # Docker container
-├── docker-compose.yml     # Docker Compose config
-├── README.md             # This file
-├── Module/
-│   ├── imgtojson.py      # Image to JSON conversion
-│   ├── ExtractFeatures.py # Feature extraction
-│   └── mlmodel/          # ML models
-└── .env                  # Environment variables (create)
+├── app.py                  # Main FastAPI entry point & API routes
+├── requirements.txt        # Production & Testing dependencies
+├── .env                    # Environment variables (API keys, DB URLs)
+├── pytest.ini              # Pytest configuration for path & env loading
+├── Module/                 # Core Business Logic
+│   ├── imgtojson.py        # VLM-based Image to JSON conversion
+│   ├── ExtractFeatures.py  # Graph-based feature extraction logic
+│   └── mlmodel/            # Trained XGBoost models (.joblib)
+├── tests/                  # Automated Testing Suite
+│   ├── conftest.py         # Shared Pytest fixtures (DB setup, Async client)
+│   ├── data/               # "Golden" samples (PNGs & Expected JSONs)
+│   └── api/                # Test cases (Scoring, Thresholds, API flow)
+└── README.md               # Project documentation
 ```
+
+---
+
+---
+# Testing
+
+# Run all tests with verbose output
+python -m pytest -v
 
 ---
 
@@ -189,5 +186,5 @@ imgtojson/
 
 - Currently uses in-memory storage. For production, integrate with a database (PostgreSQL recommended).
 - Teacher answer must be uploaded before student answers for a given question.
-- The ML model is loaded from `Module/mlmodel/EvaluateScoreXG.joblib`.
+- The ML model is loaded from google drive.
 "# Diagram-To-JSON-AND-EVAL-API" 
