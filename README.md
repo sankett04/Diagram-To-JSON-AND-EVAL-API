@@ -2,6 +2,7 @@
 
 FastAPI backend for converting answer sheet images to JSON and evaluating student responses. Designed to integrate with Next.js frontend.
 
+
 ## 🚀 Quick Start
 
 ### Local Development
@@ -26,7 +27,9 @@ uvicorn app:app --reload
 
 ## 📡 API Endpoints
 
+Link : https://diagram-to-json-and-eval-api.onrender.com/docs
 ### 1. Teacher Upload
+
 ```
 http
 POST /api/teacher/upload
@@ -80,22 +83,6 @@ GET /api/student/results/{student_id}
 
 ---
 
-## 🐳 Docker Deployment
-
-### Build and Run
-```
-bash
-docker build -t imgtojson-api .
-docker run -p 8000:8000 imgtojson-api
-```
-
-### Or with Docker Compose
-```
-bash
-docker-compose up --build
-```
-
----
 
 ## 🔧 Environment Variables
 
