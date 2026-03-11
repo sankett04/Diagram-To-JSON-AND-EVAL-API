@@ -1,0 +1,53 @@
+{
+    "nodes": [
+      {
+        "id": 1,
+        "type": "start_end",
+        "label": "Start"
+      },
+      {
+        "id": 2,
+        "type": "input_output",
+        "label": "Enter marks"
+      },
+      {
+        "id": 3,
+        "type": "decision",
+        "label": "Marks <= 40"
+      },
+      {
+        "id": 4,
+        "type": "start_end",
+        "label": "End"
+      },
+      {
+        "id": 5,
+        "type": "process",
+        "label": "pass"
+      },
+      {
+        "id": 6,
+        "type": "process",
+        "label": "Fail"
+      }
+    ],
+    "edges": [
+      {
+        "source": 1,
+        "target": 2
+      },
+      {
+        "source": 2,
+        "target": 3
+      },
+      {
+        "source": 3,
+        "target": 5
+      },
+      {
+        "source": 3,
+        "target": 6
+      }
+    ]
+  }
+  
