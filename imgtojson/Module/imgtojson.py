@@ -7,7 +7,7 @@ from PIL import Image
 from io import BytesIO
 
 # It is better to load the API key from an environment variable
-HF_API_KEY = os.environ.get("HUGGINGFACE_API_KEY","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")
+HF_API_KEY = os.environ.get("HUGGINGFACE_API_KEY")
 
 # Initialize the Async client
 client = AsyncOpenAI(
