@@ -56,7 +56,7 @@ async def image_to_json(image_path: str) -> dict:                # <-- Marked as
     # Call HuggingFace API asynchronously
     try:
         completion = await client.chat.completions.create(     # <-- Added 'await'
-            model="Qwen/Qwen3-VL-8B-Instruct:together",
+            model="Qwen/Qwen2.5-VL-7B-Instruct:hyperbolic",
             messages=[
                 {
                     "role": "user",
